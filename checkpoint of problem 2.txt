@@ -1,0 +1,105 @@
+PROCEDURE dot_product(v1, v2 : ARRAY; n : INTEGER; VAR ps : INTEGER)
+
+VAR
+    i : INTEGER
+
+BEGIN
+
+    ps ← 0
+
+    FOR i ← 1 TO n DO
+        ps ← ps + v1[i] * v2[i]
+    ENDFOR
+
+END
+
+2. Check if vectors are orthogonal : 
+
+ALGORITHM OrthogonalVectors
+
+VAR
+    v1, v2 : ARRAY
+    ps : INTEGER
+    n, m, i, j : INTEGER
+
+BEGIN
+
+    READ(n)
+    READ(m)
+
+    FOR i ← 1 TO n DO
+
+        FOR j ← 1 TO m DO
+            READ(v1[j])
+        ENDFOR
+
+        FOR j ← 1 TO m DO
+            READ(v2[j])
+        ENDFOR
+
+        dot_product(v1, v2, m, ps)
+
+        IF ps = 0 THEN
+            WRITE("Orthogonal")
+        ELSE
+            WRITE("Not orthogonal")
+        ENDIF
+
+    ENDFOR
+
+END
+
+3.  Function
+
+FUNCTION dot_product(v1, v2 : ARRAY; n : INTEGER) : INTEGER
+
+VAR
+    i, ps : INTEGER
+
+BEGIN
+
+    ps ← 0
+
+    FOR i ← 1 TO n DO
+        ps ← ps + v1[i] * v2[i]
+    ENDFOR
+
+    RETURN ps
+
+END
+
+ final Algorithm using the function : 
+
+ALGORITHM OrthogonalVectors
+
+VAR
+    v1, v2 : ARRAY
+    ps : INTEGER
+    n, m, i, j : INTEGER
+
+BEGIN
+
+    READ(n)
+    READ(m)
+
+    FOR i ← 1 TO n DO
+
+        FOR j ← 1 TO m DO
+            READ(v1[j])
+        ENDFOR
+
+        FOR j ← 1 TO m DO
+            READ(v2[j])
+        ENDFOR
+
+        ps ← dot_product(v1, v2, m)
+
+        IF ps = 0 THEN
+            WRITE("Orthogonal")
+        ELSE
+            WRITE("Not orthogonal")
+        ENDIF
+
+    ENDFOR
+
+END

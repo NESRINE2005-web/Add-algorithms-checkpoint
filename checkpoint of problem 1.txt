@@ -1,0 +1,47 @@
+ALGORITHM DistinctSum
+
+VAR
+    A, B : ARRAY
+    i, j : INTEGER
+    sum : INTEGER
+    found : BOOLEAN
+
+BEGIN
+
+    sum ← 0
+
+    FOR i ← 1 TO length(A) DO
+
+        found ← false
+
+        FOR j ← 1 TO length(B) DO
+            IF A[i] = B[j] THEN
+                found ← true
+            ENDIF
+        ENDFOR
+
+        IF found = false THEN
+            sum ← sum + A[i]
+        ENDIF
+
+    ENDFOR
+
+    FOR i ← 1 TO length(B) DO
+
+        found ← false
+
+        FOR j ← 1 TO length(A) DO
+            IF B[i] = A[j] THEN
+                found ← true
+            ENDIF
+        ENDFOR
+
+        IF found = false THEN
+            sum ← sum + B[i]
+        ENDIF
+
+    ENDFOR
+
+    write (sum)
+
+END
