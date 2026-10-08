@@ -13,7 +13,6 @@ BEGIN
 
 END
 
- * 2. Check if vectors are orthogonal : 
 
 ALGORITHM OrthogonalVectors
 
@@ -49,7 +48,7 @@ BEGIN
 
 END
 
- *  3.  Function
+ **  Function
 
 FUNCTION dot_product(v1, v2 : ARRAY; n : INTEGER) : INTEGER
 
